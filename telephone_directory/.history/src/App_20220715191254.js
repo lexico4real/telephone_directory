@@ -1,0 +1,38 @@
+import { useState } from 'react';
+import './App.css';
+import 'h8k-components';
+import AddPerson from './components/AddPerson/AddPerson';
+import ListPeople from './components/ListPeople/ListPeople';
+const title = 'Telephone Directory';
+
+const App = (props) => {
+  const [person, setPersons] = useState([
+    {
+      name: 'John Doe',
+      number: '1234567890',
+      id: '1'
+    },
+    {
+      name: 'Jane Doe',
+      number: '1234567890',
+      id: '2'
+    }
+  ]);
+  const { persons } = props;
+
+  // const persons = (data) => {
+  //   // console.log(data);
+  // };
+
+  return (
+    <div>
+      <h8k-navbar header={title}></h8k-navbar>
+      <div className='flex align-items-center justify-content-center container'>
+        <AddPerson />
+        <ListPeople persons={setPersons} />
+      </div>
+    </div>
+  );
+};
+
+export default App;

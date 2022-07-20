@@ -1,9 +1,6 @@
 import './ListPeople.css';
-export default function ListPeople({ persons }) {
-  // console.log(persons);
-  // for (let i = 0; i < persons.length; i++) {
-  //   console.log(persons[i].name);
-  // }
+export default function ListPeople({ contacts }) {
+  // console.log(contacts);
   return (
     <div className='card w-40 mx-10 px-30 py-30'>
       <h3 className='pt-10'> Contact List</h3>
@@ -17,14 +14,14 @@ export default function ListPeople({ persons }) {
           </tr>
         </thead>
         <tbody>
-          {persons &&
-            persons.map((person, index) => {
+          {contacts &&
+            contacts.map((contact, index) => {
               return (
                 <tr key={index}>
                   <td>{index + 1}</td>
-                  <td>{person.name}</td>
-                  <td>{person.number}</td>
-                  <td>{person.email}</td>
+                  <td>{contact.name}</td>
+                  <td>{contact.number}</td>
+                  <td>{contact.email}</td>
                 </tr>
               );
             })}

@@ -3,32 +3,21 @@ import './App.css';
 import 'h8k-components';
 import AddPerson from './components/AddPerson/AddPerson';
 import ListPeople from './components/ListPeople/ListPeople';
+import contacts from './contacts.json';
+
 const title = 'Telephone Directory';
 
 const App = () => {
-  // const { persons } = props;
-
-  // const persons = (data) => {
-  //   // console.log(data);
-  // };
-  let persons = [
-    {
-      name: 'John Doe',
-      number: '123456789',
-      email: 'johndoe@email.com'
-    },
-    {
-      name: 'Jane Doe',
-      number: '987654321',
-      email: 'janedoe@email.com'
-    },
-  ]
+  const [persons, setPersons] = useState(contacts);
   return (
     <div>
       <h8k-navbar header={title}></h8k-navbar>
       <div className='flex align-items-center justify-content-center container'>
-        <AddPerson />
-        <ListPeople persons={persons} />
+        <AddPerson
+          persons={persons}
+          setPersons={setPersons}
+        />
+        <ListPeople contacts={persons} />
       </div>
     </div>
   );
